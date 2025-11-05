@@ -8,7 +8,7 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <Router>
+    <Router basename="/aamir_portfolio">
       <div className="min-h-screen bg-dark-bg">
         <Header />
         <main>
