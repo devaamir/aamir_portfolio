@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ExternalLink, Github } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
 import Button from './Shared/Button'
 import d2dIcon from '../assets/images/d2d.png'
 import onewayIcon from '../assets/images/oneway.webp'
