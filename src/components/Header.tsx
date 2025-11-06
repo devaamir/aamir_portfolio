@@ -1,26 +1,30 @@
-import { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
-import { motion } from 'framer-motion'
-import { Menu, X, Github, Linkedin, Twitter, Code2 } from 'lucide-react'
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
+import { Menu, X, Github, Linkedin, Twitter, Code2 } from "lucide-react";
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const location = useLocation()
+  const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
   const navItems = [
-    { name: 'About Me', path: '/about' },
-    { name: 'Projects', path: '/projects' },
-    { name: 'Contact', path: '/contact' }
-  ]
+    { name: "About Me", path: "/about" },
+    { name: "Projects", path: "/projects" },
+    { name: "Contact", path: "/contact" },
+  ];
 
   const socialLinks = [
-    { icon: Github, href: 'https://github.com/sayedaamir', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://www.linkedin.com/in/sayedmuhammedaamir', label: 'LinkedIn' },
-    { icon: Twitter, href: 'https://x.com/sayedaamir', label: 'X' }
-  ]
+    { icon: Github, href: "https://github.com/devaamir", label: "GitHub" },
+    {
+      icon: Linkedin,
+      href: "https://www.linkedin.com/in/sayedmuhammedaamir",
+      label: "LinkedIn",
+    },
+    { icon: Twitter, href: "https://x.com/sayedaamir", label: "X" },
+  ];
 
   return (
-    <motion.header 
+    <motion.header
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
@@ -49,9 +53,9 @@ const Header = () => {
                 key={item.path}
                 to={item.path}
                 className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg group ${
-                  location.pathname === item.path 
-                    ? 'text-dark-accent bg-dark-accent/10' 
-                    : 'text-text-secondary hover:text-dark-accent hover:bg-white/5'
+                  location.pathname === item.path
+                    ? "text-dark-accent bg-dark-accent/10"
+                    : "text-text-secondary hover:text-dark-accent hover:bg-white/5"
                 }`}
               >
                 {item.name}
@@ -103,9 +107,9 @@ const Header = () => {
         {/* Mobile Navigation */}
         <motion.div
           initial={false}
-          animate={{ 
-            height: isOpen ? 'auto' : 0,
-            opacity: isOpen ? 1 : 0
+          animate={{
+            height: isOpen ? "auto" : 0,
+            opacity: isOpen ? 1 : 0,
           }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
           className="md:hidden overflow-hidden"
@@ -116,9 +120,9 @@ const Header = () => {
                 <motion.div
                   key={item.path}
                   initial={{ opacity: 0, x: -20 }}
-                  animate={{ 
-                    opacity: isOpen ? 1 : 0, 
-                    x: isOpen ? 0 : -20 
+                  animate={{
+                    opacity: isOpen ? 1 : 0,
+                    x: isOpen ? 0 : -20,
                   }}
                   transition={{ delay: index * 0.1 }}
                 >
@@ -126,9 +130,9 @@ const Header = () => {
                     to={item.path}
                     onClick={() => setIsOpen(false)}
                     className={`block px-4 py-3 text-sm font-medium transition-all duration-300 rounded-lg ${
-                      location.pathname === item.path 
-                        ? 'text-dark-accent bg-dark-accent/10 border border-dark-accent/30' 
-                        : 'text-text-secondary hover:text-dark-accent hover:bg-white/5'
+                      location.pathname === item.path
+                        ? "text-dark-accent bg-dark-accent/10 border border-dark-accent/30"
+                        : "text-text-secondary hover:text-dark-accent hover:bg-white/5"
                     }`}
                   >
                     {item.name}
@@ -136,7 +140,7 @@ const Header = () => {
                 </motion.div>
               ))}
             </nav>
-            
+
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: isOpen ? 1 : 0 }}
@@ -160,7 +164,7 @@ const Header = () => {
         </motion.div>
       </div>
     </motion.header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

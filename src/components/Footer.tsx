@@ -1,11 +1,22 @@
-import { motion } from 'framer-motion'
-import { ArrowUp, Mail, Phone } from 'lucide-react'
-import Button from './Shared/Button'
+import { motion } from "framer-motion";
+import { ArrowUp, Github, Linkedin, Twitter } from "lucide-react";
+import { Link } from "react-router-dom";
+import Button from "./Shared/Button";
 
 const Footer = () => {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const socialLinks = [
+    { icon: Github, label: "GitHub", href: "https://github.com/devaamir" },
+    {
+      icon: Linkedin,
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/in/sayedmuhammedaamir",
+    },
+    { icon: Twitter, label: "X", href: "https://x.com/sayedaamir" },
+  ];
 
   return (
     <footer className="bg-dark-card/50 border-t border-dark-accent/20">
@@ -20,7 +31,7 @@ const Footer = () => {
           >
             Let's Build Something Amazing 🚀
           </motion.h2>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -28,7 +39,8 @@ const Footer = () => {
             transition={{ delay: 0.2 }}
             className="text-base md:text-lg text-text-secondary mb-6 md:mb-8 max-w-2xl mx-auto leading-relaxed"
           >
-            Ready to turn your ideas into reality? Let's collaborate and create something extraordinary together.
+            Ready to turn your ideas into reality? Let's collaborate and create
+            something extraordinary together.
           </motion.p>
 
           <motion.div
@@ -38,9 +50,11 @@ const Footer = () => {
             transition={{ delay: 0.4 }}
             className="flex justify-center"
           >
-            <Button variant="primary" size="lg">
-              Contact Me
-            </Button>
+            <Link to="/contact">
+              <Button variant="primary" size="lg">
+                Get in Touch
+              </Button>
+            </Link>
           </motion.div>
         </div>
       </section>
@@ -54,22 +68,27 @@ const Footer = () => {
                 © 2025 Sayed Muhammed Aamir. All rights reserved.
               </p>
             </div>
-            
-            <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4 md:space-x-6">
-              <a
-                href="mailto:sayed@example.com"
-                className="text-text-secondary hover:text-dark-accent transition-colors duration-300 flex items-center text-sm md:text-base"
-              >
-                <Mail size={14} className="mr-2 md:w-4 md:h-4" />
-                sayed@example.com
-              </a>
-              <a
-                href="tel:+1234567890"
-                className="text-text-secondary hover:text-dark-accent transition-colors duration-300 flex items-center text-sm md:text-base"
-              >
-                <Phone size={14} className="mr-2 md:w-4 md:h-4" />
-                +1 (234) 567-890
-              </a>
+
+            <div className="flex items-center space-x-4 md:space-x-6">
+              <span className="text-sm text-text-secondary">
+                Connect with me:
+              </span>
+              <div className="flex space-x-3">
+                {socialLinks.map((social) => (
+                  <motion.a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.1, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="p-2 text-text-secondary hover:text-dark-accent transition-all duration-300 rounded-lg hover:bg-white/5"
+                    aria-label={social.label}
+                  >
+                    <social.icon size={18} />
+                  </motion.a>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -88,7 +107,7 @@ const Footer = () => {
         <ArrowUp size={20} className="md:w-6 md:h-6" />
       </motion.button>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { ChevronDown, Sparkles } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import Button from './Shared/Button'
 import profileImage from '../assets/images/profile.jpg'
 
@@ -174,12 +175,16 @@ const HeroSection = () => {
               transition={{ duration: 0.8, delay: 1.4 }}
               className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center lg:justify-start"
             >
-              <Button variant="primary" size="md">
-                View My Work
-              </Button>
-              <Button variant="outline" size="md">
-                Hire Me
-              </Button>
+              <Link to="/projects">
+                <Button variant="primary" size="md">
+                  View My Work
+                </Button>
+              </Link>
+              <Link to="/contact">
+                <Button variant="outline" size="md">
+                  Hire Me
+                </Button>
+              </Link>
             </motion.div>
           </motion.div>
         </div>
