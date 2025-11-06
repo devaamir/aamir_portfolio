@@ -9,9 +9,9 @@ const StatsSection = () => {
   ]
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8">
+    <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
@@ -23,18 +23,18 @@ const StatsSection = () => {
                 scale: 1.05,
                 boxShadow: '0 0 30px rgba(61, 202, 115, 0.3)'
               }}
-              className="bg-dark-card p-8 rounded-xl border border-dark-accent/20 text-center group hover:border-dark-accent transition-all duration-300"
+              className="bg-dark-card p-4 md:p-8 rounded-xl border border-dark-accent/20 text-center group hover:border-dark-accent transition-all duration-300"
             >
               <motion.div
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: index * 0.1 + 0.3, type: "spring" }}
-                className="text-4xl md:text-5xl font-bold text-dark-accent mb-2 group-hover:animate-pulse"
+                className="text-2xl md:text-4xl lg:text-5xl font-bold text-dark-accent mb-1 md:mb-2 group-hover:animate-pulse"
               >
                 {stat.number}
               </motion.div>
-              <div className="text-text-secondary font-medium">
+              <div className="text-xs md:text-sm lg:text-base text-text-secondary font-medium">
                 {stat.label}
               </div>
             </motion.div>

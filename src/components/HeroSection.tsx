@@ -13,7 +13,7 @@ const HeroSection = () => {
   ]
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 relative overflow-hidden pt-20 md:pt-0">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 cyber-grid opacity-30" />
       <motion.div
@@ -22,7 +22,7 @@ const HeroSection = () => {
           rotate: [0, 180, 360]
         }}
         transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-        className="absolute top-20 right-20 w-32 h-32 border border-dark-accent/20 rounded-full"
+        className="absolute top-10 right-4 md:top-20 md:right-20 w-16 h-16 md:w-32 md:h-32 border border-dark-accent/20 rounded-full"
       />
       <motion.div
         animate={{ 
@@ -30,28 +30,28 @@ const HeroSection = () => {
           x: [0, 10, 0]
         }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-20 left-20 w-24 h-24 bg-gradient-to-r from-dark-purple/20 to-dark-secondary/20 rounded-lg rotate-45"
+        className="absolute bottom-10 left-4 md:bottom-20 md:left-20 w-12 h-12 md:w-24 md:h-24 bg-gradient-to-r from-dark-purple/20 to-dark-secondary/20 rounded-lg rotate-45"
       />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Profile Image */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="flex justify-center lg:justify-start"
+            className="flex justify-center lg:justify-start order-1 lg:order-none"
           >
             <div className="relative group">
               {/* Outer Glow Ring */}
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                className="absolute -inset-4 bg-gradient-to-r from-dark-accent via-dark-purple to-dark-secondary rounded-full opacity-20 blur-xl"
+                className="absolute -inset-2 md:-inset-4 bg-gradient-to-r from-dark-accent via-dark-purple to-dark-secondary rounded-full opacity-20 blur-xl"
               />
               
               {/* Main Profile Container */}
-              <div className="relative w-96 h-96 rounded-full glass-effect p-2 group-hover:scale-105 transition-transform duration-500">
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full glass-effect p-2 group-hover:scale-105 transition-transform duration-500">
                 <div className="w-full h-full rounded-full relative overflow-hidden">
                   <img 
                     src={profileImage} 
@@ -77,20 +77,20 @@ const HeroSection = () => {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-center lg:text-left space-y-8"
+            className="text-center lg:text-left space-y-6 md:space-y-8 order-2 lg:order-none"
           >
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="space-y-4"
+              className="space-y-3 md:space-y-4"
             >
               <div className="flex items-center justify-center lg:justify-start gap-2 text-dark-accent">
-                <Sparkles size={20} />
-                <span className="text-sm font-mono">Available for work</span>
+                <Sparkles size={16} className="md:w-5 md:h-5" />
+                <span className="text-xs md:text-sm font-mono">Available for work</span>
               </div>
               
-              <h1 className="text-5xl md:text-7xl font-bold">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight">
                 Hey, I'm{' '}
                 <span className="gradient-text">Aamir</span>{' '}
                 <motion.span
@@ -107,7 +107,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-2xl md:text-4xl font-semibold font-mono"
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold font-mono leading-tight"
             >
               Mobile App{' '}
               <span className="text-dark-accent">{'{'}</span>
@@ -127,7 +127,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="text-xl text-text-secondary max-w-2xl leading-relaxed"
+              className="text-base sm:text-lg md:text-xl text-text-secondary max-w-2xl leading-relaxed"
             >
               Specializing in{' '}
               <span className="text-dark-accent font-semibold">React Native</span> mobile apps, 
@@ -144,10 +144,10 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1 }}
-              className="space-y-4"
+              className="space-y-3 md:space-y-4"
             >
-              <h3 className="text-sm font-medium text-text-muted uppercase tracking-wider">Tech Stack</h3>
-              <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+              <h3 className="text-xs md:text-sm font-medium text-text-muted uppercase tracking-wider">Tech Stack</h3>
+              <div className="flex flex-wrap gap-2 md:gap-3 justify-center lg:justify-start">
                 {techStack.map((tech, index) => (
                   <motion.span
                     key={tech}
@@ -159,7 +159,7 @@ const HeroSection = () => {
                       y: -2,
                       boxShadow: '0 10px 25px rgba(0, 217, 255, 0.2)'
                     }}
-                    className="px-4 py-2 glass-effect rounded-xl text-sm font-medium neon-border cursor-pointer"
+                    className="px-3 py-1.5 md:px-4 md:py-2 glass-effect rounded-xl text-xs md:text-sm font-medium neon-border cursor-pointer"
                   >
                     {tech}
                   </motion.span>
@@ -172,7 +172,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.4 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center lg:justify-start"
             >
               <Button variant="primary" size="md">
                 View My Work
@@ -190,7 +190,7 @@ const HeroSection = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
@@ -198,7 +198,7 @@ const HeroSection = () => {
           className="flex flex-col items-center text-text-muted"
         >
           <span className="text-xs mb-2 font-mono">Scroll</span>
-          <ChevronDown size={20} />
+          <ChevronDown size={16} className="md:w-5 md:h-5" />
         </motion.div>
       </motion.div>
     </section>
