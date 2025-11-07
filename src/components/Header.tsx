@@ -42,7 +42,7 @@ const Header = () => {
               <Code2 size={20} className="text-white" />
             </motion.div>
             <span className="text-2xl font-bold gradient-text font-mono">
-              Sayed.Dev
+              Dev.Aamir
             </span>
           </Link>
 
